@@ -15,7 +15,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("wessamabdelwahab/react-app")
+                    app = docker.build("faraanak/react-app")
                     app.inside {
                         sh 'echo $(curl localhost:1233)'
                     }
@@ -48,7 +48,7 @@ pipeline {
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "docker run --restart always --name react-app -p 1233:80 -d wessamabdelwahab/react-app:${env.BUILD_NUMBER}"
+                        sh "docker run --restart always --name react-app -p 1233:80 -d faraanak/react-app:${env.BUILD_NUMBER}"
                     }
             }
         }
